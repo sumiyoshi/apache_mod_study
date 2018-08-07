@@ -1,0 +1,11 @@
+version: '3'
+services:
+  httpd:
+    build: ./.docker
+    container_name: "apache_mod_study"
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+      - ./.docker/httpd/httpd.conf:/etc/httpd/conf/httpd.conf
+      - ./.docker/httpd/modules/mod_hello_world.so:/usr/lib64/httpd/modules/mod_hello_world.so
